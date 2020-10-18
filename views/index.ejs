@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Express Disk Upload</title>
+  <link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<body class="bg-gray-100 flex justify-center">
+  <form action="/upload" method="post" enctype="multipart/form-data" class="bg-white p-4 shadow w-1/2 rounded mt-20">
+    <p>
+      <input type="file" name="file" />
+      <button class="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded mt-2 mb-4">Upload</button>
+    </p>
+
+    <% for (const file of files) { %>
+      <div class="bg-gray-100 mt-2 p-4 rounded">
+        <%= file %> | <a href="/download/<%= file %>">Download</a>
+      </div>
+    <% } %>
+  </form>
+</body>
+</html>
